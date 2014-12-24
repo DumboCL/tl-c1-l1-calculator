@@ -15,35 +15,40 @@ def run_calculator
     say "1) add 2) subtract 3) multiply 4) divide 5) exit"
     operator = gets.chomp.to_i
 
+    if ![1, 2, 3, 4, 5].include?(operator)
+      say "I think you made a wrong input, please try it again."
+      next
+    end
+
     if operator == 5
       say "Bye bye!"
       break
     else
 
       say "Please input your first number:"
-      num1 = gets.chomp
+      number_1 = gets.chomp.to_f
 
       say "Please input your second number:"
-      num2 = gets.chomp
+      number_2 = gets.chomp.to_f
 
       if operator == 1
-        result = num1.to_f + num2.to_f
+        result = number_1 + number_2
 
       elsif operator == 2
-        result = num1.to_f - num2.to_f
+        result = number_1 - number_2
 
       elsif operator == 3
-        result = num1.to_f * num2.to_f
+        result = number_1 * number_2
 
       elsif operator == 4
-        if num2.to_f == 0
+        if number_2 == 0
           say "Divisor can not be 0, please input your numbers again."
           next  
         else
-          result = num1.to_f / num2.to_f
+          result = number_1 / number_2
         end
       end
-
+        
       puts "=> Result is #{result}"
       puts
     end
